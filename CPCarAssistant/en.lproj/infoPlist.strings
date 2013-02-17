@@ -1,0 +1,8 @@
+/* 
+  infoPlist.strings
+  CPCarAssistant
+
+  Created by zeng on 13-2-16.
+  Copyright (c) 2013年 __MyCompanyName__. All rights reserved.
+*/
+CFBundleDisplayName="game";

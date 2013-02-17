@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  CPCarAssistant
+
+  Created by zeng on 13-2-16.
+  Copyright (c) 2013年 __MyCompanyName__. All rights reserved.
+*/
+
+"Loading..."="Loading...";
+"Pull down to refresh..."="Pull down to refresh...";
+"Release to refresh..."="Pull down to refresh...";
+
+"Lode more..."="Lode more...";
+"Release to Lode more..."="Release to Lode more...";
+"Last Updated: %@"="Last Updated: %@";

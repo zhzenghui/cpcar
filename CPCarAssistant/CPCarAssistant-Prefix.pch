@@ -1,0 +1,196 @@
+//
+// Prefix header for all source files of the 'CPCarAssistant' target in the 'CPCarAssistant' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+
+
+#import "ActivityViewController.h"
+#import "AutoModelViewController.h"
+#import "TestDrive_PreserverViewController.h"
+#import "MessageViewController.h"
+#import "Dealer_BoutiqueViewController.h"
+#import "OwnersFAQViewController.h"
+#import "Gas_StopsViewController.h"
+#import "ConsumeRecordViewController.h"
+#import "OriginalFittingsViewController.h"
+#import "SysSettingViewController.h"
+#import "ViolateViewController.h"
+
+#import "NSString+helper.h"
+#import "JSONKit.h"
+
+
+#define ScreenSize [[UIScreen mainScreen] bounds];
+
+
+#define KData @"Data"
+#define KFile @"File"
+
+
+
+#define KMENU_BUTTON_Activity 10
+
+#define KMENU_BUTTON_AutoModel 11
+#define KMENU_BUTTON_TestDrive_Preserver 12
+#define KMENU_BUTTON_MessageView 13
+#define KMENU_BUTTON_Dealer_Boutique 14
+#define KMENU_BUTTON_OwnersFAQView 15
+#define KMENU_BUTTON_Gas_StopsView 16
+#define KMENU_BUTTON_ConsumeRecordView 17
+#define KMENU_BUTTON_OriginalFittings 18
+#define KMENU_BUTTON_ViolateView 19
+#define KMENU_BUTTON_SysSetting 20
+
+
+
+#define KAuto_AutoID @"AutoID"
+#define KAuto_AutoImg @"AutoImg"
+#define KAuto_IsTestDrive @"IsTestDrive"
+#define KAuto_MSRP @"MSRP"
+#define KAuto_Name @"Name"
+#define KAuto_OrderNum @"OrderNum"
+#define KAuto_SeriesID @"SeriesID"
+
+#define KAutoSeries @"AutoSeries"
+#define KAutoSeries_SeriesID @"SeriesID"            
+#define KAutoSeries_Name @"Name"
+#define KAutoSeries_Describe @"Describe"
+#define KAutoSeries_SeriesImg @"SeriesImg"
+#define KAutoSeries_OrderNum @"OrderNum"
+
+#define KImages @"Images"
+#define KImages_ImageID @"ImageID"
+#define KImages_Name @"Name"
+#define KImages_Describe @"Describe"
+#define KImages_AutoID @"AutoID"
+#define KImages_Thumbnail @"Thumbnail"
+#define KImages_ImgURL @"ImgURL"
+#define KImages_SeriesImg @"SeriesImg"
+#define KImages_OrderNum @"OrderNum"
+
+#define KActivity @"Activity"
+#define KActivity_ID @"ID"
+#define KActivity_DealerID @"DealerID"
+#define KActivity_Title @"Title"
+#define KActivity_ImgURL @"ImgURL"
+#define KActivity_SupTime @"SupTime"
+
+#define KCityID @"ID"
+#define KCityProvinceName @"ProvinceName"
+#define KCityCityName @"CityName"
+#define KCityCode @"Code"
+#define KCityFather @"Father"
+
+//#define KTestfieldAutoModelData @"automodelData"
+//#define KTestfieldPrivinceData @"privinceData"
+//#define KTestfieldCityData @"cityData"
+//#define KTestfieldDealerData @"dealerData"
+//#define KTestfieldFranchiseData @"franchiseData"
+
+#define KUserNameData @"CustName"
+#define KUserGenderData @"CustSex"
+#define KUserAreaData @"CustAddr"
+
+#define KUserTelphoneData @"telphone"
+#define KUserEmailData @"email"
+#define KUserTestTimeData @"testTime"
+#define KUserPayTimeData @"payTime"
+
+#define KUser_Car_num @"num"
+#define KUser_Car_autoModel @"autoModel"
+#define KUser_Car_payTime @"payTime"
+#define KUser_Car_mileage @"mileage"
+#define KUser_Car @"CarInfo"
+
+
+#define KTestfieldAutoModel @"AutoID"
+#define KTestfieldPrivince @"Province"
+#define KTestfieldCity @"City"
+#define KTestfieldDealer @"Dealer"
+#define KTestfieldFranchise @"Boutique"
+
+#define KPreserverCustName @"CustName"
+#define KPreserverCustSex @"CustSex"
+#define KPreserverCustAddr @"CustAddr"
+#define KPreserverCustPhone @"CustPhone"
+#define KPreserverCustMail @"CustMail"
+#define KPreserverPreserveTime @"PreserveTime"
+
+
+//  养车消费 表字段
+#define KConsumeRecordType @"Type"
+#define KConsumeRecordPrice @"Price"
+#define KConsumeRecordUptime @"Uptime"
+
+// 消息的  表字段
+//'id' , 'Dealer' varchar(15), 'UDID' varchar(64), 'Message' varchar(300), 'Answer' varchar(300),'IsAnswer' bool, 'uptime' datetime
+#define KMessageId @"ID"
+#define KMessageDealer @"Dealer"
+#define KMessageUDID @"UDID"
+#define KMessageMessage @"Message"
+#define KMessageAnswer @"Answer"
+#define KMessageIsAnswer @"IsAnswer"
+#define KMessageUpTime @"UpTime"
+
+
+
+//http://192.168.1.101:8091/Prot/Appointment/Preserve.ashx
+#define KServerUrl @"http://192.168.1.101:8091/%@"
+#define KServerPreserverAdd @"Prot/Appointment/UpdatePreserveInfo.ashx"
+#define KServerMessageAdd @"Prot/Message/UpdateMessageInfo.ashx"
+#define KServerAboutCarUpdateCarInfo @"Prot/AboutCar/UpdateCarInfo.ashx"
+#define KServerFAQUpdateFAQInfo @"Prot/FAQ/UpdateFAQInfo.ashx"
+#define KServer_Activity_UpdateActivityInfo @"Prot/Activity/UpdateActivityInfo.ashx"
+#define KServer_Prot_GetUpdateCount @"Prot/GetUpdateCount.ashx"
+
+#define KServer_Prot_Dealer_UpdateDealerInfo @"Prot/Dealer/UpdateDealerInfo.ashx"
+#define KServer_Prot_OilPrice_GetOilPrice @"Prot/OilPrice/GetOilPrice.ashx"
+
+#define UPLOAD_TIME_OUT 60
+
+
+
+
+#ifdef DEBUG
+#define debugLog(...) NSLog(__VA_ARGS__)
+#define debugMethod() NSLog(@"%s", __func__)
+#else
+#define debugLog(...)
+#define debugMethod()
+#endif
+
+#define EMPTY_STRING        @""
+
+#define LocalSTR(key)            NSLocalizedString(key, nil)
+
+#define PATH_OF_APP_HOME    NSHomeDirectory()
+#define PATH_OF_NSBUNDLE  [NSBundle mainBundle]
+#define PATH_OF_TEMP        NSTemporaryDirectory()
+#define PATH_OF_DOCUMENT    [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
